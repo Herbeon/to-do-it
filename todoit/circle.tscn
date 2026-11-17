@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c1b18xuak7cu4"]
+
+[ext_resource type="Texture2D" uid="uid://dii4vad2ii725" path="res://art/a circle yay.png" id="1_ot13w"]
+[ext_resource type="Script" uid="uid://d1xt6mfrac0bq" path="res://circle.gd" id="1_whlr7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+radius = 201.6358
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tcrup"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ot13w")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="circle" type="CharacterBody2D" unique_id=1772085313]
+script = ExtResource("1_whlr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2024169231]
+shape = SubResource("CircleShape2D_onrkg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=301141100]
+sprite_frames = SubResource("SpriteFrames_tcrup")

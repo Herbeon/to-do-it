@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://l75a51n24nc2"]
+
+[ext_resource type="Script" uid="uid://c5mrxp324xgag" path="res://scene.gd" id="1_ulcgi"]
+[ext_resource type="PackedScene" uid="uid://dlby0jpy4fpum" path="res://player.tscn" id="2_3253y"]
+[ext_resource type="PackedScene" uid="uid://c1b18xuak7cu4" path="res://circle.tscn" id="3_u3cyc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tcrup"]
+font_color = Color(0.16862746, 0.1764706, 0.4745098, 1)
+
+[node name="scene" type="Node2D" unique_id=657409421]
+script = ExtResource("1_ulcgi")
+
+[node name="player1" parent="." unique_id=431713932 instance=ExtResource("2_3253y")]
+position = Vector2(426, 506)
+scale = Vector2(0.2, 0.2)
+
+[node name="circle" parent="." unique_id=1772085313 instance=ExtResource("3_u3cyc")]
+position = Vector2(395.99997, 188.99998)
+scale = Vector2(0.2, 0.2)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=518565769]
+z_index = 2
+points = PackedVector2Array(475, 82, 475, 553)
+default_color = Color(0.16709706, 0.17721987, 0.47493297, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2041542286]
+z_index = -1
+offset_left = -40.0
+offset_top = -28.0
+offset_right = 1194.0
+offset_bottom = 697.0
+color = Color(0.8495276, 0.8735824, 0.99999815, 1)
+
+[node name="Control" type="Control" parent="." unique_id=1002233398]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 255.0
+offset_top = 60.0
+offset_right = 295.0
+offset_bottom = 100.0
+
+[node name="Label" type="Label" parent="Control" unique_id=129084962]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "score = 0"
+label_settings = SubResource("LabelSettings_tcrup")
