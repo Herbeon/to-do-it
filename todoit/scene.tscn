@@ -15,7 +15,7 @@ position = Vector2(426, 506)
 scale = Vector2(0.2, 0.2)
 
 [node name="circle" parent="." unique_id=1772085313 instance=ExtResource("3_u3cyc")]
-position = Vector2(395.99997, 188.99998)
+position = Vector2(415, 128)
 scale = Vector2(0.2, 0.2)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=518565769]
