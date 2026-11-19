@@ -5,21 +5,30 @@ var height = 5 # spawns on either left or right side, negative = left, pos = rig
 # if height value is same as player's (player is always at -1 or 1) then player crashed
 # or just more if statements
 
+# instead of doing fancier number things might be better to just look at sides...
+var left = true # true = left, false = right
 signal on_ground
 
 func _ready() -> void:
-	position.y = 180
+	at_top()
 
 func _physics_process(delta: float) -> void:
 	pass
 
+func at_top():
+	position.y = 0
+	height = [5,-5].pick_random()
+	position.y = 180
+	if(height > 0):
+		position.x = 475 + 50
+	elif(height < 0):
+		position.x = 475 - 50
+		
 func chopped():
 	if(abs(height) == 1):
 		on_ground.emit()
-		
 	if(height == 0):
-		#despawn 
-		position.y = 0
+		at_top()
 	elif(height > 0):
 		height -= 1
 	else:

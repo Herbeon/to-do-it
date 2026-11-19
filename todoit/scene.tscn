@@ -11,7 +11,7 @@ font_color = Color(0.16862746, 0.1764706, 0.4745098, 1)
 script = ExtResource("1_ulcgi")
 
 [node name="player1" parent="." unique_id=431713932 instance=ExtResource("2_3253y")]
-position = Vector2(426, 506)
+position = Vector2(426, 465)
 scale = Vector2(0.2, 0.2)
 
 [node name="circle" parent="." unique_id=1772085313 instance=ExtResource("3_u3cyc")]

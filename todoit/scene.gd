@@ -21,12 +21,14 @@ func _process(delta: float) -> void:
 func p1_went_left():
 	score += 1
 	circle.chopped()
-	$Control/Label.text = "score = " + str(score) + "\ncrashes = " + str(crashes) + "\n" + str(p1.side)
+	p1.side = -1
+	$Control/Label.text = "score = " + str(score) + "\ncrashes = " + str(crashes) + "\n" + str(p1.side) + "\n" + str(circle.height)
 
 func p1_went_right():
 	score += 1
 	circle.chopped()
-	$Control/Label.text = "score = " + str(score) + "\ncrashes = " + str(crashes) + "\n" + str(p1.side)
+	p1.side = 1
+	$Control/Label.text = "score = " + str(score) + "\ncrashes = " + str(crashes) + "\n" + str(p1.side) + "\n" + str(circle.height)
 
 	
 func check_for_cross():

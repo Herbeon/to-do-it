@@ -15,11 +15,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_pressed(left)):
 		$AnimatedSprite2D.flip_h = false 
-		position.x -= 100
-		side = -1
+		position.x = 425
 		went_left.emit()
 	if(Input.is_action_just_pressed(right)):
 		$AnimatedSprite2D.flip_h = true 
-		position.x += 100
-		side = 1
+		position.x = 525
 		went_right.emit()
