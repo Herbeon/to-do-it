@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dysuye00a6rfl"]
+
+[ext_resource type="PackedScene" uid="uid://l75a51n24nc2" path="res://scene.tscn" id="1_n17cx"]
+
+[node name="twoplayerscene" type="Node2D" unique_id=146388434]
+
+[node name="scene" parent="." unique_id=657409421 instance=ExtResource("1_n17cx")]
+position = Vector2(-222, -35)
+
+[node name="scene2" parent="." unique_id=1472806661 instance=ExtResource("1_n17cx")]
+position = Vector2(460, -18)
+
+[node name="player1" parent="scene2" index="0" unique_id=431713932]
+left = "p2_left"
+right = "p2_right"
+
+[editable path="scene"]
+[editable path="scene2"]
