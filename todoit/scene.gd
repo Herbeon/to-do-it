@@ -3,7 +3,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 
-@onready var p1 = $player1
+@export var playernode = "player1"
+
+@onready var p1 = get_node(playernode)
 @onready var circle = $circle
 
 var score = 0

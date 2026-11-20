@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var xcenter = 475
 var height = 5 # spawns on either left or right side, negative = left, pos = right
 # calculation is abs -1
 # if height value is same as player's (player is always at -1 or 1) then player crashed
@@ -23,9 +24,9 @@ func at_top():
 	position.y = 180
 	left = height < 0
 	if(height > 0):
-		position.x = 475 + 50
+		position.x = xcenter + 50
 	elif(height < 0):
-		position.x = 475 - 50
+		position.x = xcenter - 50
 		
 func chopped():
 	if(abs(height) == 1):
