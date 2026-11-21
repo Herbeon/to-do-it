@@ -14,5 +14,4 @@ position = Vector2(460, -18)
 left = "p2_left"
 right = "p2_right"
 
-[editable path="scene"]
 [editable path="scene2"]
