@@ -9,9 +9,5 @@ position = Vector2(-222, -35)
 
 [node name="scene2" parent="." unique_id=1472806661 instance=ExtResource("1_n17cx")]
 position = Vector2(460, -18)
-
-[node name="player1" parent="scene2" index="0" unique_id=431713932]
 left = "p2_left"
 right = "p2_right"
-
-[editable path="scene2"]

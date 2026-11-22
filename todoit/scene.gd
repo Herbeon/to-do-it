@@ -7,21 +7,34 @@ extends Node2D
 
 @onready var p1 = get_node(playernode)
 @onready var circle = $circle
+@export var character = "doryfish"
+@export var left = "p1_left"
+@export var right = "p1_right"
+@export var xcenter = 475
 
 var score = 0
 var crashes = 0
 
 func _ready() -> void:
-	p1.went_left.connect(p1_went_left)
-	p1.went_right.connect(p1_went_right)
+	#p1.went_left.connect(p1_went_left)
+	#p1.went_right.connect(p1_went_right)
 	circle.on_ground.connect(check_for_cross)
 	circle.floor_left.connect(floor_left)
 	circle.floor_right.connect(floor_right)
+	p1.play_become(character)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	if(Input.is_action_just_pressed(left)):
+		if(!p1.restricted_movement):
+			p1.animated_sprite.flip_h = false 
+			p1.position.x = xcenter - 50
+			p1_went_left()
+	if(Input.is_action_just_pressed(right)):
+		if(!p1.restricted_movement):
+			p1.animated_sprite.flip_h = true 
+			p1.position.x = xcenter + 50
+			p1_went_right()
 func crashed():
 	p1.crashed()
 	circle.crashed()
