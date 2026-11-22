@@ -8,6 +8,7 @@
 radius = 119.94165
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u3cyc"]
+resource_local_to_scene = true
 shader = ExtResource("2_i3pqv")
 shader_parameter/flash = 0.0
 

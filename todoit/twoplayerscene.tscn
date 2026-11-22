@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://dysuye00a6rfl"]
 
 [ext_resource type="PackedScene" uid="uid://l75a51n24nc2" path="res://scene.tscn" id="1_n17cx"]
+[ext_resource type="Script" uid="uid://0d6jb6ljfssv" path="res://twoplayerscene.gd" id="1_tbinw"]
 
 [node name="twoplayerscene" type="Node2D" unique_id=146388434]
+script = ExtResource("1_tbinw")
 
 [node name="scene" parent="." unique_id=657409421 instance=ExtResource("1_n17cx")]
-position = Vector2(-222, -35)
+position = Vector2(432, -15)
 
 [node name="scene2" parent="." unique_id=1472806661 instance=ExtResource("1_n17cx")]
-position = Vector2(460, -18)
+position = Vector2(-206, -34)
 left = "p2_left"
 right = "p2_right"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1905886874]
+z_index = -10
+offset_right = 1201.0
+offset_bottom = 593.0
+color = Color(0.6784314, 0.5882353, 1, 1)
