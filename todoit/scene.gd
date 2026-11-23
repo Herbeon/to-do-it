@@ -6,14 +6,21 @@ extends Node2D
 @export var playernode = "player1"
 
 @onready var p1 = get_node(playernode)
-@onready var circle = $circle
+@onready var circle = get_node("circle")
 @export var character = "doryfish"
 @export var left = "p1_left"
 @export var right = "p1_right"
 @export var xcenter = 475
 
+var circle2
+var another_circle
+
 var score = 0
 var crashes = 0
+
+var prev_spawned = 0
+
+var circlelist = []
 
 func _ready() -> void:
 	#p1.went_left.connect(p1_went_left)
@@ -22,6 +29,7 @@ func _ready() -> void:
 	circle.floor_left.connect(floor_left)
 	circle.floor_right.connect(floor_right)
 	p1.play_become(character)
+	circlelist.append("circle")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -43,15 +51,21 @@ func crashed():
 func p1_went_left():
 	score += 1
 	p1.side = -1
-	circle.chopped()
-	$Control/Label.text = "score = " + str(score) + "\ncrashes = " + str(crashes) + "\nside " + str(p1.side) + "\nheight " + str(circle.height)
+	for i in circlelist:
+		get_node(i).chopped()
+	#circle.chopped()
+	#spawn_circle()
+	#$Control/Label.text = "score = " + str(score) + "\ncrashes = " + str(crashes) + "\nside " + str(p1.side) + "\nheight " + str(circle.height)
+	$Control/Label.text = "score = " + str(score) + "\ncrashes = " + str(crashes)
 
 func p1_went_right():
 	score += 1
 	p1.side = 1
-
-	circle.chopped()
-	$Control/Label.text = "score = " + str(score) + "\ncrashes = " + str(crashes) + "\nside " + str(p1.side) + "\nheight" + str(circle.height)
+	for i in circlelist:
+		get_node(i).chopped()
+	#spawn_circle()
+	#$Control/Label.text = "score = " + str(score) + "\ncrashes = " + str(crashes) + "\nside " + str(p1.side) + "\nheight" + str(circle.height)
+	$Control/Label.text = "score = " + str(score) + "\ncrashes = " + str(crashes)
 
 func floor_left():
 	#print("was on left")
@@ -71,8 +85,18 @@ func check_for_cross():
 		crashed()
 		
 func spawn_circle():
-	var choice = [5,-5,0].pick_random()
+	var choice = 0
+	if (prev_spawned == 0):
+		choice = [5,-5,0].pick_random() 
+	elif(prev_spawned == -5):
+		choice = [-5,0].pick_random()
+	elif(prev_spawned == 5):
+		choice = [5,0].pick_random()
+	prev_spawned = choice
 	if(choice != 0):
-		var another_circle = circle.duplicate()
-		another_circle.height = choice
+		another_circle = circle.duplicate()
+		#add_child(another_circle)
+		#another_circle.at_top(choice)
+		#circlelist.append("another_circle")
+		#print(circlelist)
 		

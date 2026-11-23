@@ -13,14 +13,16 @@ signal floor_left
 signal floor_right
 
 func _ready() -> void:
-	at_top()
+	at_top(5)
 
 func _physics_process(delta: float) -> void:
 	pass
 
-func at_top():
+func at_top(picked_thing : int):
+	if(picked_thing == 0):
+		return
 	position.y = 0
-	height = [5,-5].pick_random()
+	height = picked_thing
 	position.y = 180
 	left = height < 0
 	if(height > 0):
@@ -36,7 +38,7 @@ func chopped():
 			floor_left.emit()
 		else:
 			floor_right.emit()
-		at_top()
+		at_top(5)
 	elif(height > 0):
 		height -= 1
 	else:
@@ -47,3 +49,4 @@ func crashed():
 	$AnimatedSprite2D.material.set_shader_parameter("flash",1.0)
 	await get_tree().create_timer(1).timeout
 	$AnimatedSprite2D.material.set_shader_parameter("flash",0.0)
+	at_top(-5)
