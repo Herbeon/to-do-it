@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://l75a51n24nc2" path="res://scene.tscn" id="1_n17cx"]
 [ext_resource type="Script" uid="uid://0d6jb6ljfssv" path="res://twoplayerscene.gd" id="1_tbinw"]
+[ext_resource type="Script" uid="uid://y47f4lhd38v4" path="res://timing.gd" id="3_fhvt2"]
 
 [node name="twoplayerscene" type="Node2D" unique_id=146388434]
 script = ExtResource("1_tbinw")
@@ -20,4 +21,18 @@ offset_right = 1201.0
 offset_bottom = 593.0
 color = Color(0.6784314, 0.5882353, 1, 1)
 
-[node name="Timer" type="Timer" parent="." unique_id=657669653]
+[node name="timing" type="Node2D" parent="." unique_id=358009296]
+position = Vector2(544, 131)
+script = ExtResource("3_fhvt2")
+
+[node name="Timer" type="Timer" parent="timing" unique_id=657669653]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="timing" unique_id=1490854837]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "30 seconds"
+
+[connection signal="timeout" from="timing/Timer" to="." method="_on_timer_timeout"]

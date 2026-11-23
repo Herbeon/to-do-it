@@ -38,7 +38,7 @@ func chopped():
 			floor_left.emit()
 		else:
 			floor_right.emit()
-		at_top(5)
+		at_top([5,-5].pick_random())
 	elif(height > 0):
 		height -= 1
 	else:
@@ -49,4 +49,4 @@ func crashed():
 	$AnimatedSprite2D.material.set_shader_parameter("flash",1.0)
 	await get_tree().create_timer(1).timeout
 	$AnimatedSprite2D.material.set_shader_parameter("flash",0.0)
-	at_top(-5)
+	at_top([5,-5].pick_random())

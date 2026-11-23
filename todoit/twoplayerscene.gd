@@ -9,3 +9,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_timer_timeout() -> void:
+	get_node("scene").p1.restricted_movement = true
+	get_node("scene2").p1.restricted_movement = true
