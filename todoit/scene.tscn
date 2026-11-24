@@ -14,8 +14,20 @@ script = ExtResource("1_ulcgi")
 position = Vector2(426, 465)
 scale = Vector2(0.2, 0.2)
 
-[node name="circle" parent="." unique_id=1772085313 instance=ExtResource("3_u3cyc")]
+[node name="circle1" parent="." unique_id=1772085313 instance=ExtResource("3_u3cyc")]
 position = Vector2(415, 128)
+scale = Vector2(0.2, 0.2)
+
+[node name="circle2" parent="." unique_id=870235964 instance=ExtResource("3_u3cyc")]
+scale = Vector2(0.2, 0.2)
+
+[node name="circle3" parent="." unique_id=608822545 instance=ExtResource("3_u3cyc")]
+scale = Vector2(0.2, 0.2)
+
+[node name="circle4" parent="." unique_id=1152906343 instance=ExtResource("3_u3cyc")]
+scale = Vector2(0.2, 0.2)
+
+[node name="circle5" parent="." unique_id=1460933407 instance=ExtResource("3_u3cyc")]
 scale = Vector2(0.2, 0.2)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=518565769]
