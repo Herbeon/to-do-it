@@ -95,7 +95,8 @@ func check_for_cross():
 		crashed(lowestcircle)
 		
 func spawn_circle():
-	#print("lowest circle " + str(lowestcircle))
+	print(incircle)
+	print("lowest circle " + str(lowestcircle))
 	var choice = 0
 	if (prev_spawned == 0):
 		choice = [5,-5,0].pick_random() 
@@ -104,8 +105,10 @@ func spawn_circle():
 	elif(prev_spawned == 5):
 		choice = [5,0].pick_random()
 	prev_spawned = choice
+	print("previously spawned: " + str(prev_spawned))
 	#print(prev_spawned)
 	if(choice != 0):
+		print("spawning something")
 		var next_circle = get_node("circle" + str(circnum+1))
 		next_circle.in_play = true
 		next_circle.at_top(choice)
@@ -116,9 +119,12 @@ func spawn_circle():
 		#another_circle.at_top(choice)
 		#circlelist.append("another_circle")
 		#print(circlelist)
+	else:
+		print("spawns blank space")
 		
 func underground():
 	lowestcircle.in_play = false
-	lowestcirclenum = (lowestcirclenum + 1)%5
 	lowestcircle = get_node("circle" + str(lowestcirclenum + 1))
+	lowestcirclenum = (lowestcirclenum + 1)%5
+
 	incircle.remove_at(0)

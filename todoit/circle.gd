@@ -25,13 +25,13 @@ func _physics_process(delta: float) -> void:
 		visible = false
 	else:
 		visible = true
+		
 func at_top(picked_thing : int):
 	if(in_play):
 		if(picked_thing == 0):
 			return
-		position.y = 0
 		height = picked_thing
-		position.y = 180
+		position.y = 140
 		left = height < 0
 		if(height > 0):
 			position.x = xcenter + 50
@@ -48,6 +48,7 @@ func chopped():
 			else:
 				floor_right.emit()
 			under_ground.emit()
+			visible = false
 			#at_top([5,-5].pick_random())
 		elif(height > 0):
 			height -= 1
